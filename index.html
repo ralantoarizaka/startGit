@@ -1,1 +1,254 @@
-html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Tableau de Bord | Orika</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{ static_url('trad/css/bootstrap.min.css') }}">
+
+  <link href="{{ static_url('trad/ven/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="{{ static_url('trad/ven/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="{{ static_url('trad/ven/nprogress/nprogress.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ static_url('trad/libs/semantic/semantic.min.css') }}" charset="UTF-8">
+  <link rel="stylesheet" href="{{ static_url('trad/libs/semantic/dataTables.semanticui.min.css') }}" charset="UTF-8">
+  <link rel="stylesheet" href="{{ static_url('trad/css/style.css') }}" charset="UTF-8">
+
+  <!-- Custom Theme Style -->
+  <link href="{{ static_url('trad/build/css/custom.min.css') }}" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <div class="col-md-3 left_col">
+      <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+          <a href="https://www.societe.com/societe/orika-440209039.html" class="site_title"><img src="{{ static_url('trad/build/images/logo.png') }}" class="img-responsive"/></span></a>
+        </div>
+        <div class="clearfix"></div>
+        <!-- menu profile quick info -->
+        <div class="profile clearfix">
+          <div class="profile_pic">
+            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+          </div>
+          <div class="profile_info">
+            <span>Utilisateur</span>
+          </div>
+        </div>
+        <!-- /menu profile quick info -->
+        <br />
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div class="menu_section">
+            <ul class="nav side-menu">
+              <li><a><i class="fa fa-home"></i> Tableau de bord </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- top navigation -->
+    <div class="top_nav">
+      <div class="nav_menu">
+        <nav>
+          <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="">
+              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <img src="images/img.jpg" alt="">Utilisateur
+                <span class=" fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="javascript:;"> Profile</a></li>
+                <li><a href="javascript:;">Help</a></li>
+                <li><a href="/projet/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- /top navigation -->
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="page-title">
+          <div class="title_left">
+            <div class="ui two column centered stackable grid">
+              <div class="three wide column">
+                <div class="ui form">
+                  <div id="champsDate" class="field centered">
+                    <div class="ui left icon input">
+                      <input type="text" name="date" id="champ_date" size="12" maxlength="10">
+                      <i class="calendar icon"></i>
+                    </div>
+                    <div id="calendarMain"></div>
+                    <button id="envoyer" class="btn btn-default">OK</button>
+                  </div>
+                </div>
+              </div>
+              <div class="twelve wide column">
+                <div id="bloc-bandes">
+                  <canvas id="myChart" width="400" height="250"></canvas>
+                </div>
+                <div id="bloc-tableau">
+                  <table id="dataT" class="ui selectable celled striped table">
+                    <thead>
+                    <tr id="entete">
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr id="pied">
+                    </tr>
+                    </tfoot>
+                    <tbody id="corps">
+                    </tbody>
+                  </table>
+                </div>
+                <div id="bloc-info"></div>
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go</button>
+               	</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+          <!-- bar chart -->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Chiffre d'affaires par mode de paiement</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Affichage</a>
+                      </li>
+                      <li><a href="#">Model</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="graph_bar" style="width:100%; height:320px;"></div>
+              </div>
+            </div>
+          </div>
+          <!-- pie chart -->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Details du chiffre d'affaires </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Affichage</a>
+                      </li>
+                      <li><a href="#">Model</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content2">
+                <h3 style="white-space: nowrap;" ><span class="col1"> Chiffre d'affaires total: </span> <span class="col1" id="ca"  > </span></h3><br>
+                <h2 style="white-space: nowrap;"><span class="col2">Paiement par espèce: </span> <span class="col2" id="caESPECE"  > </span></h2>
+                <h2 style="white-space: nowrap;"><span class="col2">Paiement par carte :</span> <span class="col2" id="caCarteB"  > </span></h2>
+                <h2 style="white-space: nowrap;"><span class="col2">Bon de Fourniseurs : </span> <span class="col2" id="caBF"  > </span></h2>
+                <h2 style="white-space: nowrap;"><span class="col2">Paiement par ticket: </span> <span class="col2" id="ticket"  > </span></h2>
+                <h2 style="white-space: nowrap;"><span class="col2">Paiement inconnue  : </span> <span class="col2" id="caInconnu"  > </span></h2>
+                <div class="ui one column centered stackable grid">
+                  <div class="one wide column">
+                    <div class="ui buttons">
+                      <h2 class="" id="btn-tableau"></h2>
+                      <h2 class="" id="btn-bandes"></h2>
+                    </div>
+                  </div>
+                </div>
+                <!--Calendrier-->
+              </div>
+            </div>
+            <!-- /line graph -->
+          </div>
+        </div>
+      <!-- /page content -->
+      <!-- footer content -->
+      <footer>
+        <div class="pull-right">
+          Admin  <a href="https://www.societe.com/societe/orika-440209039.html">Dev-ORIKA</a>
+        </div>
+        <div class="clearfix"></div>
+      </footer>
+      <!-- /footer content -->
+    </div>
+  </div>
+  <!-- jQuery -->
+  <script src="{{ static_url('trad/ven/jquery/dist/jquery.min.js') }}"></script>
+  <!-- Bootstrap -->
+  <script src="{{ static_url('trad/ven/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+  <!-- FastClick -->
+  <script src="{{ static_url('trad/ven/fastclick/lib/fastclick.js') }}"></script>
+  <!-- NProgress -->
+  <script src="{{ static_url('trad/ven/nprogress/nprogress.js') }}"></script>
+  <!-- morris.js -->
+  <script src="{{ static_url('trad/ven/rap/rap.min.js') }}"></script>
+  <script src="{{ static_url('trad/ven/morris.js/morris.min.js') }}"></script>
+  <!--<script src="{{ static_url('trad/js/app.js') }}"></script>-->
+  <script src="{{ static_url('trad/js/appg.js') }}"></script>
+  <script src="{{ static_url('trad/js/coreg.js') }}"></script>
+  <!-- Custom Theme Scripts -->
+  <script src="{{ static_url('trad/build/js/custom.js') }}"></script>
+  <script type="text/javascript" src="{{ static_url('trad/libs/jquery/jquery-2.1.4.min.js') }}"></script>
+  <script type="text/javascript" src="{{ static_url('trad/libs/jquery/jquery-ui.js') }}"></script>
+  <script src="{{ static_url('trad/libs/dist/datepickk.js') }}"></script>
+  <script type="text/javascript" src="{{ static_url('trad/libs/semantic/semantic.js') }}" charset="UTF-8"></script>
+  <script type="text/javascript" src="{{ static_url('trad/js/indexdate.js') }}"></script>
+  <script type="text/javascript" src="{{ static_url('trad/libs/DatePicker/jsSimpleDatePickr.js') }}"></script>
+  <script type="text/javascript" src="{{ static_url('trad/libs/DatePicker/jsSimpleDatePickrInit.js') }}"></script>
+  <script type="text/javascript">
+          calInit("calendarMain", "", "champ_date", "jsCalendar", "day", "selectedDay");
+          $(document).ready(function() {
+              $('.ui.sticky')
+                  .sticky({
+                      context: '#context'
+                  })
+              ;
+          });
+      </script>
+</div>
+</body>
+</html>
